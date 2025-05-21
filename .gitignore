@@ -1,0 +1,49 @@
+# Binaries (from build or Makefile)
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out
+
+# OVA/VMDK/OVF artifacts
+*.ova
+*.ovf
+*.vmdk
+*.mf
+
+# Build artifacts from `go build`
+*.test
+
+# Test output
+coverage.out
+*.log
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# OS-specific junk
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Configs and environment files
+.env
+*.local
+config.yaml
+config.json
+
+# Go module cache (never needed in git)
+vendor/
+
+# Dependency management (if vendoring enabled)
+go.sum
+
+# Optional: include test/integration fixture output
+/test/integration/tmp/
+
