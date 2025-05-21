@@ -53,6 +53,8 @@ type FileSystem interface {
 	BufioNewScanner(r io.Reader) ScannerInterface
 	Chmod(fileName string, fileMode os.FileMode) error
 	RemoveAll(path string) error
+	NewGzipReader(r io.Reader) (*gzip.Reader, error)
+	TarReader(r io.Reader) *tar.Reader
 }
 
 // Default implementations of the interfaces.
@@ -124,6 +126,13 @@ func (fs *DefaultFileSystem) BufioNewScanner(r io.Reader) ScannerInterface{
 	}
 }
 
+func (fs *DefaultFileSystem) NewGzipReader(r io.Reader) (*gzip.Reader, error) {
+	return gzip.NewReader(r)
+}
+
+func (fs *DefaultFileSystem) TarReader(r io.Reader) *tar.Reader {
+	return tar.NewReader(r)
+}
 
 type DefaultChecksumVerifier struct{
 	fs FileSystem
