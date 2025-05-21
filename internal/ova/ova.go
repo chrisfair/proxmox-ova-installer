@@ -1,12 +1,16 @@
 package ova
 
-import "os"
+import (
+	"os"
+	"github.com/chrisfair/proxmox-ova-installer/internal/filesystem"
+)
 
 type OVA struct {
 	Path string  // Path to the OVA file
 	Dir string // Directory where the OVA file is extracted
 	OVF string // Path to the OVF file
 	VMDK string // Path to the VMDK file
+	fs *filesystem.FileSystem // File system interface for file operations
 }
 
 // Extract unpacks the .ova to a temporary directory
